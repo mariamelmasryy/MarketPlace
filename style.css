@@ -1,0 +1,658 @@
+/* Importing Google Font - Open Sans */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+ 
+}
+
+/* Color variables for light theme */
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --light-white-color: #f0f0f0;
+  --light-gray-color: #e5e5e5;
+  --border-color: #ccc;
+  --primary-color: #3b82f6;
+  --secondary-color: #404040;
+  --overlay-dark-color: rgba(0, 0, 0, 0.6);
+  font-family: 'MyCustomFont', sans-serif;
+}
+
+/* Color variables for dark theme */
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src:url('Font/J7acnpd8CGxBHp2VkaY6zp5yGw.woff2') format('woff');
+}
+
+  body {
+    background-image: url('images/logo2.jpg'); /* استبدلي بالمسار الصحيح للصورة */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.container {
+  display: flex;
+  overflow: hidden;
+  max-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+.sidebar .nav-left,
+.category-list {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding: 8px 16px;
+  justify-content: space-between;
+
+}
+
+:where(.navbar, .sidebar) .nav-section {
+  gap: 16px;
+}
+
+:where(.navbar, .sidebar) :where(.nav-section, .nav-logo, .search-form) {
+  display: flex;
+  align-items: center;
+}
+
+:where(.navbar, .sidebar) :where(.logo-image, .user-image) {
+  width: 205px;
+  cursor: pointer;
+  align-content: center;
+  padding-left: 50px;
+  padding-bottom: 19px;
+  padding-top: 5px;
+  transform: scale(1.4);
+}
+
+:where(.navbar, .sidebar) .nav-section .nav-button {
+  border: none;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  background: none;
+  border-radius: 50%;
+  padding-right: 280px;
+  padding-top: 20px;
+}
+
+
+:where(.navbar, .sidebar) .nav-button i {
+  font-size: 1.5rem;
+  display: flex;
+  color: var(--black-color);
+  align-items: center;
+  justify-content: center;
+}
+
+:where(.navbar, .sidebar) .nav-logo {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+}
+
+:where(.navbar, .sidebar) .nav-logo .logo-text {
+  color: var(--black-color);
+  font-size: 1.25rem;
+}
+
+.navbar .search-back-button {
+  display: none;
+}
+
+.navbar .nav-center {
+  gap: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar .search-form {
+  flex: 1;
+  height: 40px;
+  max-width: 550px;
+}
+
+
+
+.navbar .search-form .search-input:focus {
+  border-color: var(--primary-color);
+}
+
+.navbar .search-form .search-button {
+  height: 40px;
+  width: auto;
+  padding: 0 20px;
+  border-radius: 0 49px 49px 0;
+  border: 1px solid var(--border-color);
+  border-left: 0;
+}
+
+.navbar .nav-center .mic-button {
+  background: var(--light-white-color);
+}
+
+.navbar .nav-right .search-button {
+  display: none;
+}
+
+.main-layout {
+  display: flex;
+  overflow-x: auto;
+  flex-direction: row-reverse; /* يضمن وضع الـ Sidebar على اليمين والمحتوى بجانبه */
+  scrollbar-color: #a6a6a6 transparent;
+}
+
+.main-layout .sidebar {
+  width: 280px;
+  overflow: hidden;
+  padding: 0 11px 0;
+  background-color: #02683e;
+  position: fixed; /* ضمان أن الـ sidebar ثابت */
+  top: 0; /* يبقى في أعلى الصفحة */
+  height: 100vh; /* تعيين الارتفاع ليغطي كامل الشاشة */
+}
+
+.main-layout .sidebar .nav-left {
+  display: none;
+  padding: 8px 5px;
+}
+
+body.sidebar-hidden .main-layout .sidebar {
+  width: 0;
+  padding: 0;
+}
+
+.sidebar .links-container {
+  padding: 16px 0 32px;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.sidebar .links-container:hover {
+  scrollbar-color: #a6a6a6 transparent;
+}
+
+.sidebar .link-section {
+  list-style: none;
+
+}
+
+.sidebar .link-section .link-item {
+  display: flex;
+  cursor: pointer;
+  color: white;
+  white-space: nowrap;
+  align-items: center;
+  font-size: 0.938rem;
+  padding: 5px 12px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  justify-content: flex-end; /* يجعل الأيقونة والنص باتجاه اليمين */
+
+ 
+}
+
+.sidebar .link-section .link-item:hover {
+  background:green;
+}
+
+.sidebar .link-section .link-item i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+  margin-left: 10px; /* ترك مسافة بين النص والأيقونة */
+}
+
+.sidebar .link-section .section-title {
+  color: var(--black-color);
+  font-weight: 600;
+  font-size: 0.938rem;
+  margin: 16px 0 8px 8px;
+}
+
+.sidebar .section-separator {
+  height: 1px;
+  margin: 10px 0;
+  background: var(--light-gray-color);
+}
+
+.main-layout .content-wrapper {
+  padding: 0 16px;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.content-wrapper .category-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 12px 0 11px;
+  scrollbar-width: none;
+}
+
+.category-list .category-button {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.94rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  color: var(--black-color);
+  padding: 6px 12px;
+  background: var(--light-gray-color);
+}
+
+.category-list .category-button.active {
+  color: var(--white-color);
+  background: var(--black-color);
+  pointer-events: none;
+}
+
+.dark-mode .category-list .category-button.active {
+  filter: brightness(120%);
+}
+
+.category-list .category-button:not(.active):hover {
+  background: var(--border-color);
+}
+
+.content-wrapper .video-list {
+  display: grid;
+  gap:16px;
+  padding: 20px 0 64px;
+
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  
+}
+
+.content-wrapper .video-list .video-card {
+  text-decoration: none;
+
+}
+
+.content-wrapper .video-list .video-card .thumbnail-container {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  margin-left:60px;
+
+}
+
+.content-wrapper .video-list .video-card .thumbnail {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
+  background: var(--light-white-color);
+ 
+}
+
+.content-wrapper .video-list .video-card .duration {
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: var(--overlay-dark-color);
+}
+
+.content-wrapper .video-list .video-card .video-info {
+  display: flex;
+  gap: 11px;
+  padding: 11px 8px;
+  justify-content: center;
+}
+
+.content-wrapper .video-list .video-card .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.content-wrapper .video-list .video-card .title {
+  font-size: 2rem;
+  color: #000000;
+  font-weight: 600;
+  line-height: 1.375;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-left:100px;
+}
+
+.content-wrapper .video-list .video-card:hover .title {
+  color: rgb(20, 131, 62);
+}
+
+.content-wrapper .video-list .video-card p {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
+
+.content-wrapper .video-list .video-card .channel-name {
+  margin: 4px 0 2px;
+}
+body.sidebar-hidden .main-layout .content-wrapper {
+  width: 100%;
+  margin-right: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+
+/* ضبط الفيديوهات لتتمدد وتأخذ العرض الكامل .content-wrapper{
+    width:80vw;
+    margin:auto;
+  }*/
+body.sidebar-hidden .content-wrapper .video-list {
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* تكبير الفيديوهات */
+}
+
+
+/* عند الشاشات الكبيرة */
+@media (min-width: 1200px) {
+  .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin-top: 165px;
+
+  }
+
+  /* لو الـ sidebar مخفي */
+  body.sidebar-hidden .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important;
+    margin-right:145px;
+    margin-top: 165px;
+  }
+
+  /* اخفاء الـ sidebar لما يكون مخفي */
+  body.sidebar-hidden .sidebar {
+    display: none;
+  }
+
+  /* جعل المحتوى ياخد المساحة كلها لما الـ sidebar يكون مخفي */
+  body.sidebar-hidden .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+  body.sidebar-hidden .market-join{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Hateshtaghal law feh height zyada */
+    justify-content: flex-start;
+    padding-top: 40px;
+    padding-bottom: 90px;
+
+ 
+   }
+body.sidebar-hidden  .market-joinheader {
+   margin-left: 620px;
+  
+
+  }
+  
+   body.sidebar-hidden  .market-joinheader1 {
+    margin-left:0px;
+   margin-right:0px;
+ 
+   }
+   .logo-container {
+    display: none;
+  }
+  
+  /* Show the logo when the sidebar is hidden */
+  body.sidebar-hidden .logo-container {
+    display: block;
+    position: fixed; /* So it stays in place */
+    top: 10px; /* Adjust based on your design */
+    right: 25px; /* Adjust based on your design */
+    z-index: 15; /* Ensure it’s above other elements */
+   
+  }
+  
+  /* Adjust the logo size if needed */
+  .logo-container .logo {
+    width: 250px; /* Adjust logo size */
+    height: auto;
+    background-color: transparent;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  /* لو الـ sidebar مخفي */
+  body.sidebar-hidden .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  }
+  
+  /* اخفاء الـ sidebar لما يكون مخفي */
+  body.sidebar-hidden .sidebar {
+    display: none;
+  }
+
+  /* جعل المحتوى ياخد المساحة كلها لما الـ sidebar يكون مخفي */
+  body.sidebar-hidden .main-content {
+    width: 100%;
+    margin-left: 0;
+
+  }
+  .content-wrapper .video-list {
+    display: grid;
+    gap:16px;
+    padding: 20px 0 64px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  /* لو الـ sidebar مخفي */
+  body.sidebar-hidden .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  }
+  
+  /* اخفاء الـ sidebar لما يكون مخفي */
+  body.sidebar-hidden .sidebar {
+    display: none;
+  }
+
+  /* جعل المحتوى ياخد المساحة كلها لما الـ sidebar يكون مخفي */
+  body.sidebar-hidden .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .content-wrapper .video-list {
+    display: grid;
+    gap:16px;
+    padding: 20px 0 64px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    
+  }
+
+}
+
+
+
+
+
+
+/* Responsive media code for small devices */
+@media (max-width: 767px) {
+
+  .navbar {
+    gap: 1rem;
+  }
+  
+
+  .navbar .nav-center,
+  body.show-mobile-search .navbar .nav-left,
+  body.show-mobile-search .navbar .nav-right {
+    display: none;
+  }
+
+  .navbar .nav-right .search-button,
+  body.show-mobile-search .navbar .search-back-button,
+  body.show-mobile-search .navbar .nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-layout .screen-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 15;
+    width: 100%;
+    height: 100vh;
+    background: var(--overlay-dark-color);
+    transition: 0.2s ease;
+  }
+
+  body.sidebar-hidden .main-layout .screen-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .main-layout .sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 20;
+    height: 100vh;
+    transition: 0.2s ease;
+  }
+
+  body.sidebar-hidden .main-layout .sidebar {
+    right: -280px;
+    
+  }
+ 
+
+
+  .main-layout .sidebar .nav-left {
+    display: flex;
+  }
+}
+/* تصميم الـ Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+}
+
+/* إخفاء القائمة الفرعية افتراضيًا */
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  right: 0; /* لضبط القائمة باتجاه اليمين للعربية */
+  background: var(--white-color);
+  list-style: none;
+  padding: 8px 0;
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  text-align: right; /* لضبط النصوص إلى اليمين */
+  z-index: 1000; /* ضمان ظهور القائمة فوق كل العناصر */
+}
+
+/* تصميم العناصر داخل القائمة الفرعية */
+.sub-menu li {
+  padding: 10px 16px;
+}
+
+.sub-menu li a {
+  text-decoration: none;
+  color: var(--black-color);
+  display: block;
+  font-size: 14px;
+}
+
+/* تغيير اللون عند تمرير الماوس */
+.sub-menu li:hover {
+  background:#69B444; 
+}
+
+/* إظهار القائمة عند التحويم */
+.dropdown:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.market-join {
+  color: rgb(0, 0, 0);
+  padding: 50px 0px;
+  background:transparent;
+  height: 120px;
+ 
+}
+
+.market-joinheader{
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+ margin-right:300px;
+
+}
+.market-joinheader1
+{
+  text-align: right;
+  margin-right: 300px;
+margin-bottom: 50px;
+
+
+}
+.market-joinheader1-title
+{
+ font-size: 20px;
+
+}
+
+
+.market-label a{
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+  font-size: 20px;
+  outline: medium none;
+	color: inherit;
+  color: #000;
+	text-decoration:none;
+}
+
+.market-label a:hover {
+  color: var(--thm-color); 
+  text-decoration: none;
+}
